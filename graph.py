@@ -1,7 +1,7 @@
 import matplotlib.pyplot as plt
 
-input_values =[1,2,3,4,5]
-squares = [1,4,9,16,25]
+input_values =[1,2,3,4,5,6]
+squares = [1,4,9,16,25,36]
 
 plt.style.use('seaborn')
 fix, ax =plt.subplots()
