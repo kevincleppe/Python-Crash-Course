@@ -3,3 +3,4 @@
 git clone
 git status
 git add
+git push origin master 
