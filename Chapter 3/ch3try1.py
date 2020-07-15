@@ -1,0 +1,16 @@
+famous_people =['Abe', 'abba', 'Abraham', 'Dalvin Cook']
+
+print("I would like to talk history with ", famous_people[0])
+print("I would like to talk music with ", famous_people[1].title())
+print("I would like to shoot hoops with ", famous_people[2])
+print("I would like to draft", famous_people[3], "first overall.")
+print(famous_people)
+print(famous_people[1], "and ", famous_people[0], "will not be able to make it  : (")
+first_peep=famous_people.pop(0)
+second_peep=famous_people.pop(1)
+famous_people.insert(0, 'kdot')
+famous_people.insert(1, 'Eric Matthes')
+print("The new event list is",famous_people)
+print (famous_people[0], "Will replace", first_peep)
+print(famous_people[1], "will replace", second_peep)
+print("I found a bigger table!")
