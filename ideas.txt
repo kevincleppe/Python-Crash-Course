@@ -1,2 +1,4 @@
 #sandwhich code, but will take user input, and inform them if they are close to reaching limit of sanwhiches
 #Random number guesser, but online
+#Give user option for die, number of rolls, and number of times
+#Come back to lottery checker script
