@@ -20,7 +20,7 @@ else:
     print("Your birthday is not in pi.")
 x=0
 active = True
-z= 6
+z= 4
 while active:
     i=pi_string[x:x+z]
     a=pi_string[0:x+z]

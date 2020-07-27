@@ -2,3 +2,6 @@
 #Random number guesser, but online
 #Give user option for die, number of rolls, and number of times
 #Come back to lottery checker script
+#lottery script but it matches exact positions, not just elements in arrays 
+#pi birthy checker, but will print all the way up to matching four digits
+#A program that will create a guest list, and another that will check to see if a specific person is in it
