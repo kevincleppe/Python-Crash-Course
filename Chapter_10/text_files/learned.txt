@@ -1,0 +1,7 @@
+So far in python I've learn quite a bit
+
+I've learned about how to loop through information
+
+I've learned about classes and functions.
+
+I've learned about to take in user input and manipulate it.
