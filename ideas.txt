@@ -5,3 +5,6 @@
 #lottery script but it matches exact positions, not just elements in arrays 
 #pi birthy checker, but will print all the way up to matching four digits
 #A program that will create a guest list, and another that will check to see if a specific person is in it
+#Scipt tht will give users options for printing 
+#Rock paper scissors
+#pages 217 -- 218 from book, try your own iterations 

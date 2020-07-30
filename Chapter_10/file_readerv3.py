@@ -3,7 +3,6 @@ filepath= '/Users/kev/Desktop/python/Python-Crash-Course/Chapter_10/text_files/n
 with open(filepath) as file_object:
         contents = file_object.read()
 
-
 pi_string=''
 count=0
 for content in contents:
