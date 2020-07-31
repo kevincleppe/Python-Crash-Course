@@ -24,8 +24,8 @@ class Ship:
             self.x +=self.settings.ship_speed
         if self.moving_left:
             self.x -=self.settings.ship_speed
+            
         #Adjusting ship speed 
-
         self.rect.x = self.x
 
     def blitme(self):
