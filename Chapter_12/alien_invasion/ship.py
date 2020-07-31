@@ -22,7 +22,7 @@ class Ship:
             self.rect.x +=1
         if self.moving_left:
             self.rect.x -=1
-        #Master
-        
+        #Reverse back to master branch
+
     def blitme(self):
         self.screen.blit(self.image, self.rect)
