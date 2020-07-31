@@ -20,8 +20,12 @@ class Ship:
     def update(self):
         if self.moving_right:
             self.rect.x +=1
+<<<<<<< HEAD
         if self.moving_left:
             self.rect.x -=1
+=======
+        #This is a test
+>>>>>>> test
 
     def blitme(self):
         self.screen.blit(self.image, self.rect)
