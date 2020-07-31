@@ -24,5 +24,6 @@ class Ship:
             self.rect.x -=1
         #Reverse back to master branch
 
+
     def blitme(self):
         self.screen.blit(self.image, self.rect)
