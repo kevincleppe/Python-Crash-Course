@@ -22,6 +22,7 @@ class Ship:
             self.rect.x -=1
         if self.moving_left:
             self.rect.x +=1
+        #This is a test
 
     def blitme(self):
         self.screen.blit(self.image, self.rect)
