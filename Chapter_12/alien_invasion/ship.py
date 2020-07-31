@@ -19,10 +19,11 @@ class Ship:
 
     def update(self):
         if self.moving_right:
-            self.rect.x -=1
-        if self.moving_left:
             self.rect.x +=1
-        #Testing branch
+        if self.moving_left:
+            self.rect.x -=1
+        #Reverse back to master branch
+
 
     def blitme(self):
         self.screen.blit(self.image, self.rect)
