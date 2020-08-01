@@ -11,8 +11,10 @@ class AlienInvasion:
     def __init__(self):
         pygame.init()
         #Will create the display for the game
-        pygame.display.set_caption("Alien Invasion")
         self.settings = Settings()
+       
+        pygame.display.set_caption("Alien Invasion")
+        
 
         self.screen=pygame.display.set_mode((self.settings.screen_width, self.settings.screen_height))
         
