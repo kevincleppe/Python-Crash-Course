@@ -17,8 +17,8 @@ class AlienInvasion:
         self.ship = Ship(self)
         self.bullets =pygame.sprite.Group()
         self.aliens = pygame.sprite.Group()
-
         self._create_fleet()
+        
 
     #Controls the game, returns a list of events that have taken place inside the loop
     def run_game(self):
@@ -34,14 +34,14 @@ class AlienInvasion:
         
     def _check_events(self):
             #Used to access the events that Pygame detects
-            for event in pygame.event.get():
-                if event.type == pygame.QUIT:
-                    sys.exit()         
-                elif event.type == pygame.KEYDOWN:
-                    self._check_keydown_events(event)
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                sys.exit()         
+            elif event.type == pygame.KEYDOWN:
+                self._check_keydown_events(event)
 
-                elif event.type == pygame.KEYUP:
-                    self._check_keyup_events(event)
+            elif event.type == pygame.KEYUP:
+                self._check_keyup_events(event)
                 
     def _check_keydown_events(self,event):
         if event.key ==pygame.K_RIGHT:
@@ -79,16 +79,29 @@ class AlienInvasion:
                     self.bullets.remove(bullet)
 
     def _create_fleet(self):
-            alien = Alien(self)
-            self.aliens.add(alien)
+        alien = Alien(self)
+        self.aliens.add(alien)
+        alien_width = alien.rect.width 
+        available_space_x = self.settings.screen_width - (2 * alien_width)
+        number_aliens_x = available_space_x // (2 * alien_width)
+
+        for alien_number in range(number_aliens_x):
+            self._create_alien(alien_number)
+        
+    def _create_alien(self, alien_number):
+        alien=Alien(self)
+        alien_width = alien.rect.width 
+        alien.x = alien_width + 2 * alien_width *alien_number
+        alien.rect.x = alien.x
+        self.aliens.add(alien)
 
     def _update_screen(self):
-            self.screen.fill(self.settings.bg_color)  
-            self.ship.blitme() 
-            for bullet in self.bullets.sprites():
-                bullet.draw_bullet()
-            self.aliens.draw(self.screen)
-            pygame.display.flip()
+        self.screen.fill(self.settings.bg_color)  
+        self.ship.blitme() 
+        for bullet in self.bullets.sprites():
+            bullet.draw_bullet()
+        self.aliens.draw(self.screen)
+        pygame.display.flip()
 
     
 
