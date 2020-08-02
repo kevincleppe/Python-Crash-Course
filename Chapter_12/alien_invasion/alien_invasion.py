@@ -103,6 +103,8 @@ class AlienInvasion:
             self.bullets.empty()
             self._create_fleet()
             self.settings.increase_speed()
+            self.stats.level +=1
+            self.sb.prep_level()
         if collision:
             self.stats.score += self.settings.alien_points
             self.sb.prep_score()
@@ -181,6 +183,7 @@ class AlienInvasion:
             self.ship.center_ship()
             self.settings.initialize_dynamic_settings()
             self.sb.prep_score()
+            self.sb.prep_level()
  
     def _update_screen(self):
         self.screen.fill(self.settings.bg_color)  
