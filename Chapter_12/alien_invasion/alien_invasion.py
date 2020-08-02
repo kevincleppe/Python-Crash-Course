@@ -7,6 +7,7 @@ from alien import Alien
 from time import sleep
 from game_stats import GameStats
 from button import Button
+from scoreboard import Scoreboard
 
 class AlienInvasion:
 
@@ -22,7 +23,8 @@ class AlienInvasion:
         self.aliens = pygame.sprite.Group()
         self._create_fleet()
         self.stats = GameStats(self)
-        self.play_button = Button(self, "Play")        
+        self.play_button = Button(self, "Play")
+        self.sb =Scoreboard(self)        
 
     #Controls the game, returns a list of events that have taken place inside the loop
     def run_game(self):
@@ -101,6 +103,9 @@ class AlienInvasion:
             self.bullets.empty()
             self._create_fleet()
             self.settings.increase_speed()
+        if collision:
+            self.stats.score += self.settings.alien_points
+            self.sb.prep_score()
             
 
     def _create_fleet(self):
@@ -174,6 +179,7 @@ class AlienInvasion:
             self._create_fleet()
             self.ship.center_ship()
             self.settings.initialize_dynamic_settings()
+            self.sb.prep_score()
  
     def _update_screen(self):
         self.screen.fill(self.settings.bg_color)  
@@ -181,6 +187,7 @@ class AlienInvasion:
         for bullet in self.bullets.sprites():
             bullet.draw_bullet()
         self.aliens.draw(self.screen)
+        self.sb.show_score()
 
         if not self.stats.game_active:
             self.play_button.draw_button()
