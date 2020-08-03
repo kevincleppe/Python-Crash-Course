@@ -61,3 +61,20 @@ class Scoreboard:
             ship.rect.x = 10 + ship_number * ship.rect.width
             ship.rect.y = 10
             self.ships.add(ship)
+
+    def print_score(self):
+        print(f"Final score is: {self.stats.score}")
+        print(f"High score is: {self.stats.high_score}")
+        score=float(self.stats.score)
+        high_score =float(self.stats.high_score)
+        filename = 'scores.txt'
+        high_score_file = 'high_score.txt'
+        with open(filename, 'a') as file_object:
+            file_object.write(f" {score},")
+        with open(high_score_file, 'a') as file_object:
+            file_object.write(f" {high_score}")
+            
+        
+        
+        
+            

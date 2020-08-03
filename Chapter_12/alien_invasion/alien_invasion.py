@@ -47,8 +47,7 @@ class AlienInvasion:
             #Used to access the events that Pygame detects
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
-                sys.exit()
-                x         
+                sys.exit()         
             elif event.type == pygame.MOUSEBUTTONDOWN:
                 mouse_pos = pygame.mouse.get_pos()
                 self._check_play_button(mouse_pos)
@@ -72,6 +71,7 @@ class AlienInvasion:
             self._fire_bullet()
         elif event.key == pygame.K_q:
             sys.exit()
+    
     
     def _check_keyup_events(self, event):
         if event.key == pygame.K_RIGHT:
@@ -155,7 +155,7 @@ class AlienInvasion:
         self.settings.fleet_direction *= -1
 
     def _ship_hit(self):
-        if self.stats.ships_left > 0:
+        if self.stats.ships_left > 3:
             self.stats.ships_left -= 1
             self.sb.prep_ships()
             self.aliens.empty()
@@ -165,7 +165,9 @@ class AlienInvasion:
             sleep(1)
         else:
             self.stats.game_active = False
-
+            self.sb.print_score()
+            
+            
     def _check_aliens_bottom(self):
         screen_rect = self.screen.get_rect()
         for alien in self.aliens.sprites():
@@ -197,10 +199,7 @@ class AlienInvasion:
 
         if not self.stats.game_active:
             self.play_button.draw_button()
-            
         pygame.display.flip()
-
-    
 
 if __name__ == '__main__':
     ai=AlienInvasion()

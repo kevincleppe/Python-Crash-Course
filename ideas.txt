@@ -8,3 +8,4 @@
 #Scipt tht will give users options for printing 
 #Rock paper scissors
 #pages 217 -- 218 from book, try your own iterations 
+# Alien game export high scores to file, import those files to mat lab graph
