@@ -50,6 +50,7 @@ class AlienInvasion:
                 sys.exit()         
             elif event.type == pygame.MOUSEBUTTONDOWN:
                 mouse_pos = pygame.mouse.get_pos()
+                self.sb.save_score()
                 self._check_play_button(mouse_pos)
 
             elif event.type == pygame.KEYDOWN:
@@ -70,6 +71,9 @@ class AlienInvasion:
         elif event.key == pygame.K_SPACE:
             self._fire_bullet()
         elif event.key == pygame.K_q:
+            self.sb.save_score()
+            self.sb.save_to_file()
+            self.sb.print_scores()
             sys.exit()
     
     
@@ -165,7 +169,7 @@ class AlienInvasion:
             sleep(1)
         else:
             self.stats.game_active = False
-            self.sb.print_score()
+            #self.sb.print_score()
             
             
     def _check_aliens_bottom(self):

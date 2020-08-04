@@ -1,8 +1,8 @@
+import matplotlib.pyplot as plt
 import pygame.font
 from pygame.sprite import Group
-
 from ship import Ship
-
+game_scores=[]
 class Scoreboard:
 
     def __init__(self, ai_game):
@@ -61,20 +61,40 @@ class Scoreboard:
             ship.rect.x = 10 + ship_number * ship.rect.width
             ship.rect.y = 10
             self.ships.add(ship)
-
-    def print_score(self):
-        print(f"Final score is: {self.stats.score}")
-        print(f"High score is: {self.stats.high_score}")
-        score=float(self.stats.score)
-        high_score =float(self.stats.high_score)
-        filename = 'scores.txt'
-        high_score_file = 'high_score.txt'
-        with open(filename, 'a') as file_object:
-            file_object.write(f" {score},")
-        with open(high_score_file, 'a') as file_object:
-            file_object.write(f" {high_score}")
-            
         
+    def save_score(self):
+        game_scores.append(self.stats.score)
+        print(game_scores)
+        
+
+
+    def save_to_file(self):
+        filename = 'scores.txt'
+        print(f"Final scores for this round are: {game_scores}")
+        print("Saving scores beep boop.....")
+        with open(filename, 'a') as f:
+                f.write(f"{game_scores}")
+        
+    def print_scores(self):
+        plt.style.use('seaborn')
+        fig, ax = plt.subplots()
+        ax.plot(game_scores, linewidth=3)
+        plt.show()
+        
+
+    # def print_score(self):
+    #     print(f"Final score is: {self.stats.score}")
+    #     print(f"High score is: {self.stats.high_score}")
+    #     score=int(self.stats.score)
+    #     high_score =float(self.stats.high_score)
+    #     filename = 'scores.txt'
+    #     high_score_file = 'high_score.txt'
+    #     with open(filename, 'a') as file_object:
+    #         file_object.write('%d' % score)
+    #     #with open(high_score_file, 'a') as file_object:
+    #      #   file_object.write(f" {high_score}")
+    
+
         
         
             
