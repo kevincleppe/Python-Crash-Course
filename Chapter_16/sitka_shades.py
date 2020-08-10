@@ -10,11 +10,12 @@ with open(filename) as f:
     
     # for index, column_header in enumerate(header_row):
     #     print(index, column_header)
-    highs, lows=[], [],
+    dates, highs, lows=[], [], []
     for row in reader:
+        current_date = datetime.strptime(row[2], '%Y-%m-%d')
         high = int(row[5])
         low = int(row[6])
-        
+        dates.append(current_date)
         highs.append(high)
         lows.append(low)
 
